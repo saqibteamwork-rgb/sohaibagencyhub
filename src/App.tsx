@@ -1204,6 +1204,19 @@ export default function App({
       // Ignore
     }
     setActiveTab(tab);
+    // Tab Title Sync
+    try {
+      const titles: Record<string, string> = {
+        store: `${fullBrandTitle} — Digital & AI Services, SMM Store & Web Tools`,
+        about: `About ${brandOwnerName} — ${fullBrandTitle}`,
+        contact: `Contact Us & WhatsApp Support — ${fullBrandTitle}`,
+        faqs: `FAQs & Help Desk — ${fullBrandTitle}`,
+        login: `VIP Client Login & Wallet Portal — ${fullBrandTitle}`,
+        siminfo: `SIM Info & Telecommunication Records — ${fullBrandTitle}`,
+        saqibadmb: `${fullBrandTitle} — Admin Security Vault`
+      };
+      if (titles[tab]) document.title = titles[tab];
+    } catch {}
     if (scroll) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -2471,8 +2484,8 @@ export default function App({
               <div className="flex flex-col leading-none min-w-0">
                 <span className="font-extrabold text-slate-900 tracking-tight text-[11px] sm:text-sm truncate">
                   <span className="xs:hidden">{brandOwnerName.split(' ')[0].toUpperCase()}</span>
-                  <span className="hidden xs:inline sm:hidden">{(brandAccentName || brandOwnerName).toUpperCase()}</span>
-                  <span className="hidden sm:inline">{brandOwnerName.toUpperCase()}</span>
+                  <span className="hidden xs:inline sm:hidden">{fullBrandTitle.toUpperCase()}</span>
+                  <span className="hidden sm:inline">{fullBrandTitle.toUpperCase()}</span>
                 </span>
                 <span className="text-[7.5px] sm:text-[10px] font-semibold text-pink-600 truncate hidden xs:block">
                   {(brandAccentName || fullBrandTitle).toUpperCase()} • {visibleServicesCatalog.length} SERVICES
@@ -2841,7 +2854,7 @@ export default function App({
                     ✨
                   </span>
                   <h1 className="title-3d-blue text-xs sm:text-3xl font-bold tracking-wider uppercase truncate">
-                    {siteLang === 'ur' && !isCustomOwner ? 'محمد ثاقب • ثاقب ویژولز ہب' : effectiveTopStripTitle}
+                    {siteLang === 'ur' ? 'صہیب ایجنسی • آفیشل ہب' : effectiveTopStripTitle}
                   </h1>
                 </div>
                 {siteConfig.banner.showTopStripWhatsapp !== false && (
@@ -3051,7 +3064,7 @@ export default function App({
                     {/* Main Title & Highlight */}
                     {siteConfig.banner.showMainTitle !== false && (
                       <h2 className="text-xl sm:text-2xl md:text-[26px] font-extrabold text-slate-900 tracking-tight leading-snug">
-                        {siteLang === 'ur' ? 'محمد ثاقب — ثاقب ویژولز' : siteConfig.banner.mainTitle}{' '}
+                        {siteLang === 'ur' ? 'صہیب — ایجنسی ہب' : siteConfig.banner.mainTitle}{' '}
                         {siteLang === 'ur' ? (
                           <span className="text-pink-600 font-display">
                             (پریمیم ڈیجیٹل سٹور)

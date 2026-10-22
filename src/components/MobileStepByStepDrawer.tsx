@@ -140,7 +140,7 @@ export const MobileStepByStepDrawer: React.FC<MobileStepByStepDrawerProps> = ({
     {
       step: '04',
       id: 'about' as DrawerTabId,
-      title: siteLang === 'ur' ? `${brandOwnerName || 'محمد ثاقب'} کے بارے میں` : `About ${brandOwnerName || 'Muhammad Saqib'}`,
+      title: siteLang === 'ur' ? `${brandOwnerName || 'صہیب'} کے بارے میں` : `About ${brandOwnerName || 'Sohaib'}`,
       sub: siteLang === 'ur' ? 'سرٹیفائیڈ ڈیجیٹل ایجنسی اور کریڈینشلز' : 'Certified Digital Agency, Founder & Verification',
       icon: FaUserAstronaut,
       color: 'from-indigo-500 to-purple-600',
@@ -200,12 +200,12 @@ export const MobileStepByStepDrawer: React.FC<MobileStepByStepDrawerProps> = ({
               </div>
               <div className="leading-tight">
                 <div className="flex items-center gap-1.5">
-                  <h3 className="text-sm font-extrabold text-white truncate max-w-[130px]">{brandOwnerName || 'Muhammad Saqib'}</h3>
+                  <h3 className="text-sm font-extrabold text-white truncate max-w-[130px]">{brandOwnerName || 'Sohaib'}</h3>
                   <span className="px-1.5 py-0.2 rounded-full bg-emerald-500/25 border border-emerald-400 text-emerald-300 text-[8.5px] font-bold">
                     ONLINE
                   </span>
                 </div>
-                <p className="text-[10px] text-pink-300 font-medium truncate max-w-[150px]">{brandAccentName ? `${brandAccentName} Hub Official` : 'Saqib Visuals Hub Official'}</p>
+                <p className="text-[10px] text-pink-300 font-medium truncate max-w-[150px]">{brandAccentName ? `${brandAccentName} Hub Official` : 'Sohaib Agency Hub Official'}</p>
               </div>
             </div>
 

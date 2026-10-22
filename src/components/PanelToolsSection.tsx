@@ -308,7 +308,7 @@ export const MarqueeAndPulseBanner: React.FC<{
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 server-pulse-dot"></span>
               <span className="font-display font-bold text-slate-900 uppercase tracking-wider text-[11px]">
-                {siteLang === 'ur' ? 'ثاقب ویژولز لائیو سروس پینل:' : (bars?.statusPanelTitle ?? 'SAQIB VISUALS LIVE PANEL STATUS:')}
+                {siteLang === 'ur' ? 'ثاقب ویژولز لائیو سروس پینل:' : (bars?.statusPanelTitle ?? 'SOHAIB AGENCY LIVE PANEL STATUS:')}
               </span>
               {(bars?.statusPanelBadge ?? 'ALL 3 SERVERS 99.9% ONLINE') && (
                 <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-[10px] border border-emerald-300">
