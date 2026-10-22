@@ -1,6 +1,6 @@
 <div align="center">
 
-# 💎 MUHAMMAD SAQIB — SAQIB VISUALS HUB
+# 💎 SOHAIB AGENCY HUB
 ### Next.js 16 (Turbopack) • Tailwind CSS • Supabase • 3D Glassmorphism UI
 **Ultra-Fast, Secure Digital & AI Services eCommerce & Web Tools Platform**
 
@@ -9,13 +9,15 @@
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3D_Glass-blue?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Author](https://img.shields.io/badge/Made_with_%E2%9D%A4%EF%B8%8F_by-Muhammad_Saqib-rose?style=for-the-badge)](https://wa.me/923478936242)
 
+> 🤖 **AI Agents & Developers**: Read [`AGENT_SETUP_CHANGELOG.md`](./AGENT_SETUP_CHANGELOG.md) for the complete architecture overview, changelog, and database setup instructions.
+
 </div>
 
 ---
 
 ## 🌟 Overview & Key Features
 
-**Saqib Visuals Hub** is a full-stack, enterprise-grade digital services marketplace, AI tools portal, and automated admin management ecosystem:
+**Sohaib Agency Hub** is a full-stack, enterprise-grade digital services marketplace, AI tools portal, and automated admin management ecosystem:
 
 1. **🎨 3D Acrylic Glassmorphism Storefront**:
    - Modern, high-retention responsive design with interactive glow orbs and plush badges.
@@ -45,8 +47,8 @@
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/foraivelloging-cmd/testuisaqib.git saqib-visuals-hub
-cd saqib-visuals-hub
+git clone https://github.com/saqibteamwork-rgb/sohaibagencyhub.git sohaibagencyhub
+cd sohaibagencyhub
 npm install
 ```
 
@@ -58,19 +60,19 @@ cp .env.example .env.local
 
 Fill in your Supabase project credentials in `.env.local`:
 ```env
-NEXT_PUBLIC_SUPABASE_URL="https://your-project.supabase.co"
+NEXT_PUBLIC_SUPABASE_URL="https://yxrtmnnndhroqbyhmnyl.supabase.co"
 NEXT_PUBLIC_SUPABASE_ANON_KEY="your-anon-key"
 SUPABASE_SERVICE_ROLE_KEY="your-service-role-key"
 
 # ImageKit (Optional for asset uploads)
-NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY="your-key"
-NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT="your-endpoint"
-IMAGEKIT_PRIVATE_KEY="your-private-key"
+NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY="public_hAsIn5Rl4yEptvRhS++GoJeO9ck="
+NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT="https://ik.imagekit.io/ws9mlpwdsj"
+IMAGEKIT_PRIVATE_KEY="private_XiedF7mU8mxbGCLOnLcvgyTByE8="
 
 # Admin JWT Secret & Domain Whitelist
-ADMIN_JWT_SECRET="your-jwt-secret-key"
-ALLOWED_DOMAINS="localhost,*.vercel.app,yourcustomdomain.com"
-DISABLE_KILLSWITCH="false"
+ADMIN_JWT_SECRET="super_secure_random_jwt_secret_token_here_2026"
+ALLOWED_DOMAINS="localhost,sohaibagencyhub.vercel.app"
+DISABLE_KILLSWITCH="true"
 ```
 
 ### 3. Run Database Migration (1-Click SQL)
@@ -83,7 +85,7 @@ Open your **Supabase Dashboard** -> **SQL Editor** -> Click **New Query**:
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) (or [http://localhost:3001](http://localhost:3001)) in your browser.
 
 ---
 
@@ -109,6 +111,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## 👨‍💻 Developer & Credits
 
 - **Developer**: Muhammad Saqib
-- **Brand**: Saqib Visuals Hub
+- **Platform**: Sohaib Agency Hub
 - **WhatsApp Support**: [+92 347 8936242](https://wa.me/923478936242)
 - **Attribution**: Permanent Developer Signature — `Made with ❤️ by Muhammad Saqib`
