@@ -430,7 +430,7 @@ VALUES (
   'default',
   '{
   "seo": {
-    "author": "Muhammad Saqib",
+    "author": "Sohaib Agency",
     "ogType": "website",
     "ogTitle": "Muhammad Saqib — Saqib Visuals | AI Accounts & SMM Services",
     "keywords": "Muhammad Saqib, Saqib Visuals, CapCut Pro Pakistan, SMM Panel Pakistan, Lovable Pro Account, Gemini 18M Pro, ChatGPT Plus & Claude, Pak SIM Database Live, SIM Tracker 2026, NADRA Verification FRC, TikTok Agency Accounts UK USA, Fast USDT EasyPaisa Delivery",
@@ -439,7 +439,7 @@ VALUES (
     "schemaType": "WebApplication",
     "robotsIndex": true,
     "twitterCard": "summary_large_image",
-    "canonicalUrl": "https://testuisaqib.vercel.app",
+    "canonicalUrl": "https://sohaibagencyhub.vercel.app",
     "robotsFollow": true,
     "ogDescription": "Instant CapCut Pro, Lovable Pro, Gemini 18M, ChatGPT Plus, TikTok UK/USA Agency Accounts, Franchise SIM Records & SMM Services by Muhammad Saqib.",
     "twitterCreator": "@mrsaqib242",
@@ -447,14 +447,14 @@ VALUES (
   },
   "banner": {
     "badgeText": "🔥 ALL DIGITAL, AI, SMM & NADRA SERVICES LIVE 24/7 (VERIFIED ACTIVE)",
-    "mainTitle": "Muhammad Saqib",
+    "mainTitle": "Sohaib ",
     "description": "Get Instant CapCut Pro, Lovable Pro, Gemini 18M, ChatGPT, Claude, Muse AI 1B & ElevenLabs, TikTok UK/USA & Ad Agency Accounts, Franchise SIM/CDR/IMEI Tracking, NADRA FRC/Passport Records & USDT/Video/Graphics!",
     "portraitUrl": "https://ik.imagekit.io/mrsaqib/mrsaqib242-img25_7oG52NZUY.png",
     "showTopStrip": true,
     "showBadgeText": true,
     "showMainTitle": true,
-    "topStripTitle": "MUHAMMAD SAQIB • VISUALS HUB",
-    "highlightTitle": "— Saqib Visuals",
+    "topStripTitle": "SOHAIB AGENCY • OFFICIAL HUB",
+    "highlightTitle": "Agency Hub",
     "orbitBadge1Sub": "PRO UNLOCKED",
     "orbitBadge2Sub": "GEMINI • CLAUDE",
     "orbitBadge3Sub": "ADS & BOOST",
@@ -476,20 +476,20 @@ VALUES (
     "showPortraitOrbitBadges": true
   },
   "footer": {
-    "brandName": "🚀 Muhammad Saqib",
+    "brandName": "🚀 Sohaib Agency Hub",
     "showQuickLinks": true,
     "copyrightTagline": "24/7 Instant Delivery • 100% Full Replacement Warranty"
   },
   "contact": {
     "supportEmail": "support@saqibvisuals.com",
-    "officialWebsiteUrl": "https://testuisaqib.vercel.app",
+    "officialWebsiteUrl": "https://sohaibagencyhub.vercel.app",
     "whatsappWidgetName": "Muhammad Saqib",
     "whatsappNumberClean": "923478936242",
-    "officialWebsiteLabel": "testuisaqib.vercel.app",
-    "whatsappWidgetAvatar": "https://testuisaqib.vercel.app/saqib-pic.png",
+    "officialWebsiteLabel": "sohaibagencyhub.vercel.app",
+    "whatsappWidgetAvatar": "https://sohaibagencyhub.vercel.app/saqib-pic.png",
     "whatsappNumberDisplay": "+92 347 8936242",
     "whatsappDefaultMessage": "Assalam-o-Alaikum Muhammad Saqib! Mujhe apki services chahiye.",
-    "whatsappWidgetGreeting": "Assalam-o-Alaikum! 👋 Welcome to Saqib Visuals Hub.<br/>How can I help you today with CapCut Pro, AI Tools, TikTok Ads or Nadra services?"
+    "whatsappWidgetGreeting": "Assalam-o-Alaikum! 👋 Welcome to Sohaib Agency Hub.<br/>How can I help you today with CapCut Pro, AI Tools, TikTok Ads or Nadra services?"
   },
   "socials": {
     "platforms": [
@@ -604,7 +604,7 @@ VALUES (
     "instagramHandle": "@mrsaqib242"
   },
   "branding": {
-    "brandName": "Saqib Visuals Hub"
+    "brandName": "Sohaib Agency Hub"
   },
   "storeBars": {
     "chip1Label": "AI Pro Server:",
@@ -627,7 +627,7 @@ VALUES (
     "minDepositAmount": 50,
     "showCategoryTabs": true,
     "statusPanelBadge": "ALL 3 SERVERS 99.9% ONLINE",
-    "statusPanelTitle": "SAQIB VISUALS LIVE PANEL STATUS:",
+    "statusPanelTitle": "SOHAIB AGENCY LIVE PANEL STATUS:",
     "depositModalTitle": "Add Funds / Top-Up Wallet Balance",
     "searchPlaceholder": "Search any service (e.g. Lovable Pro, Gemini 18M, ElevenLabs, CDR, NADRA, Hostinger, USDT)...",
     "showAddPaymentBtn": true,
@@ -786,14 +786,15 @@ VALUES (
       "enabled": true,
       "shortTag": "💲 Crypto Top-Up",
       "extraInfo": "Send USDT via Binance Pay UID or TRC20 & upload receipt SS",
-      "accountTitle": "Saqib Visuals Official",
+      "accountTitle": "Sohaib Agency Official",
       "accountNumber": "WhatsApp +92 347 8936242 (Ask UID)"
     }
   ],
   "authorizedDomains": [
     "localhost",
     "127.0.0.1",
-    "testuisaqib.vercel.app",
+    "sohaibagencyhub.vercel.app",
+    "sohaibagencyhub.vercel.app",
     "mrsaqib242.vercel.app"
   ]
 }'::jsonb,

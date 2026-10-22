@@ -53,7 +53,7 @@ export function WhatsAppChatWidget({
       ? (siteConfig?.contact?.whatsappWidgetGreetingUr ||
         'السلام علیکم! 👋 ثاقب ویژولز ہب میں خوش آمدید۔<br/>آج میں کیپ کٹ پرو، اے آئی ٹولز، ٹک ٹاک ایڈز یا نادرا سروسز میں آپ کی کیا مدد کر سکتا ہوں؟')
       : (siteConfig?.contact?.whatsappWidgetGreeting ||
-        'Assalam-o-Alaikum! 👋 Welcome to <b>Saqib Visuals Hub</b>.<br/>How can I help you today with CapCut Pro, AI Tools, TikTok Ads or Franchise/NADRA records?');
+        'Assalam-o-Alaikum! 👋 Welcome to <b>Sohaib Agency Hub</b>.<br/>How can I help you today with CapCut Pro, AI Tools, TikTok Ads or Franchise/NADRA records?');
 
   const defaultGreeting = rawGreeting
     .replace(/Saqib Visuals Hub/gi, fullBrand)
@@ -177,7 +177,7 @@ export function WhatsAppChatWidget({
                 </span>
               </div>
 
-              {/* Verified Saqib Visuals Incoming Bubble */}
+              {/* Verified Sohaib Agency Incoming Bubble */}
               <div className="flex items-start gap-1.5">
                 <div className="bg-white p-3 rounded-2xl rounded-tl-xs shadow-sm max-w-[90%] text-xs sm:text-[13px] text-slate-800 leading-relaxed border border-slate-200/50">
                   <div

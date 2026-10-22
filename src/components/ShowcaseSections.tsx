@@ -61,7 +61,7 @@ export const DEFAULT_SHOWCASE_BANNERS: ShowcaseBannerItem[] = [
     title:
       'How Pakistani Creators & Freelancers Save 85% on Official ChatGPT Plus, Gemini 18M Pro & CapCut Pro',
     paragraph1:
-      'Buying international subscriptions like ChatGPT Plus ($20/mo), Lovable Pro, or CapCut Pro directly with a bank card costs over Rs. 6,000+ per month with heavy taxes. At Saqib Visuals, we provide 100% genuine, official workspace and personal email activations starting from just Rs. 350!',
+      'Buying international subscriptions like ChatGPT Plus ($20/mo), Lovable Pro, or CapCut Pro directly with a bank card costs over Rs. 6,000+ per month with heavy taxes. At Sohaib Agency, we provide 100% genuine, official workspace and personal email activations starting from just Rs. 350!',
     paragraph2:
       'Whether you are running a faceless YouTube automation channel using ElevenLabs 300k Credits (No Expiry) & CapCut Pro 4K, building apps with Lovable Pro & Claude 3.7 Sonnet, or upgrading your personal Gmail with Google Gemini 18-Month Pro + 2TB Storage, every subscription comes with our Full Period Replacement Warranty.',
     buttons: [
@@ -111,7 +111,7 @@ export const DEFAULT_SHOWCASE_BANNERS: ShowcaseBannerItem[] = [
     themeStyle: 'sim-search',
     badgeCategory: 'INSIDER BLOG',
     badgeCategoryColor: 'bg-rose-100 text-rose-800',
-    subtitleInfo: 'Monetization & Telecom Insights · 4 Min Read · Saqib Visuals VIP Desk',
+    subtitleInfo: 'Monetization & Telecom Insights · 4 Min Read · Sohaib Agency VIP Desk',
     title:
       'Unlock TikTok UK/USA Creator Rewards, Global Ad Agency Accounts & 2026 Franchise Verification',
     paragraph1:
@@ -192,7 +192,7 @@ export const ShowcaseSections: React.FC<ShowcaseSectionsProps> = ({
   currentUserName = ''
 }) => {
   const brandOwner = siteConfig?.banner?.mainTitle?.trim() || 'Muhammad Saqib';
-  const brandAccent = siteConfig?.banner?.highlightTitle?.trim().replace(/^[—\-\s]+/, '') || 'Saqib Visuals';
+  const brandAccent = siteConfig?.banner?.highlightTitle?.trim().replace(/^[—\-\s]+/, '') || 'Sohaib Agency';
   const fullBrand = `${brandOwner} ${siteConfig?.banner?.highlightTitle?.trim() || ''}`.trim();
 
   const [showWriteModal, setShowWriteModal] = React.useState(false);

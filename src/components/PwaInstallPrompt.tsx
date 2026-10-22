@@ -150,7 +150,7 @@ export function PwaInstallPrompt() {
         <div className="fixed bottom-6 left-6 z-[990] animate-bounce-subtle flex items-center gap-1.5">
           <button
             onClick={() => setShowModal(true)}
-            aria-label="Install Saqib Visuals Web App"
+            aria-label="Install Sohaib Agency Web App"
             className="group flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 text-white font-semibold text-xs sm:text-sm shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-105 active:scale-95 transition-all duration-300 border border-white/20 backdrop-blur-md cursor-pointer"
           >
             <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:rotate-12 transition-transform">
@@ -205,7 +205,7 @@ export function PwaInstallPrompt() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/icons/icon-192.png"
-                  alt="Saqib Visuals Hub App Icon"
+                  alt="Sohaib Agency Hub App Icon"
                   className="relative w-20 h-20 rounded-2xl border border-white/20 shadow-lg object-cover"
                 />
                 <span className="absolute -bottom-1.5 -right-1.5 px-2 py-0.5 rounded-full bg-cyan-500 text-[10px] font-bold tracking-wider text-black uppercase shadow">
@@ -215,7 +215,7 @@ export function PwaInstallPrompt() {
 
               {/* Title & Tagline */}
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                Install Saqib Visuals App
+                Install Sohaib Agency App
               </h3>
               <p className="text-xs sm:text-sm text-gray-300 mt-1.5 max-w-xs leading-relaxed">
                 Direct mobile &amp; desktop installation with 1-click access, instant loading, and zero app store required.

@@ -211,7 +211,12 @@ export function proxy(request: NextRequest) {
         const cleanHost = host.toLowerCase();
 
         // Read dynamically configured allowed domains from environment (for multiple client sales/clones)
-        const envAllowedDomains = (
+        const envAllowedDomains = [
+        'sohaibagencyhub.vercel.app',
+        'localhost',
+        '127.0.0.1',
+      ];
+      const rawEnv = (
           process.env.ALLOWED_DOMAINS ||
           process.env.NEXT_PUBLIC_ALLOWED_DOMAINS ||
           ''
@@ -219,6 +224,7 @@ export function proxy(request: NextRequest) {
           .split(',')
           .map((d) => d.trim().toLowerCase())
           .filter(Boolean);
+      envAllowedDomains.push(...rawEnv);
 
         const appUrl = process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || '';
         if (appUrl) {
@@ -275,8 +281,8 @@ export function proxy(request: NextRequest) {
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net",
     "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:",
-    "img-src 'self' data: blob: https:",
-    "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.workers.dev https://api.wa.link",
+    "img-src 'self' data: blob: https: https://*.imagekit.io",
+    "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.workers.dev https://api.wa.link https://*.imagekit.io https://upload.imagekit.io",
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",

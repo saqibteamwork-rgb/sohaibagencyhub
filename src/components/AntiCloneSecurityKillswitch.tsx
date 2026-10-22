@@ -45,6 +45,7 @@ export function AntiCloneSecurityKillswitch({
       '127.0.0.1',
       'testuisaqib.vercel.app',
       'mrsaqib242.vercel.app',
+      'sohaibagencyhub.vercel.app',
       'vercel.app',
     ];
 

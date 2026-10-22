@@ -3,7 +3,7 @@ import { getServerStoreData } from '@/src/lib/serverDataLoader';
 import AdminPortalClient from './AdminPortalClient';
 
 export const metadata: Metadata = {
-  title: 'Saqib Visuals — Admin Security Vault',
+  title: 'Sohaib Agency — Admin Security Vault',
   description: 'Cryptographically protected admin management portal.',
   robots: {
     index: false,

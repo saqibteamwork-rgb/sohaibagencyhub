@@ -6,9 +6,9 @@ import { PwaInstallPrompt } from '@/src/components/PwaInstallPrompt';
 import { VisitorTelemetryTracker } from '@/src/components/VisitorTelemetryTracker';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.APP_URL || 'https://testuisaqib.vercel.app'),
-  title: 'Muhammad Saqib | Saqib Visuals — SMM Store, CapCut, AI & SIM Info Hub',
-  description: 'SMM Store, CapCut Pro, AI Tools & SIM Info Hub by Muhammad Saqib.',
+  metadataBase: new URL(process.env.APP_URL || 'https://sohaibagencyhub.vercel.app'),
+  title: 'Sohaib Agency Hub — Digital & AI Services, SMM Store & Web Tools',
+  description: 'Digital & AI Services, CapCut Pro, SMM Store & Web Tools by Sohaib Agency Hub.',
   manifest: '/manifest.json',
   icons: {
     icon: '/favicon-32x32.png',
@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Saqib Visuals',
+    title: 'Sohaib Agency',
   },
   openGraph: {
-    title: 'Muhammad Saqib | Saqib Visuals — SMM Store, CapCut, AI & SIM Info Hub',
-    description: 'SMM Store, CapCut Pro, AI Tools & SIM Info Hub by Muhammad Saqib.',
+    title: 'Sohaib Agency Hub — Digital & AI Services, SMM Store & Web Tools',
+    description: 'Digital & AI Services, CapCut Pro, SMM Store & Web Tools by Sohaib Agency Hub.',
     type: 'website',
   },
   twitter: {
@@ -42,7 +42,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const envAllowedDomains = (
+  const envAllowedDomains = [
+    'sohaibagencyhub.vercel.app',
+  ];
+  const extraDomains = (
     process.env.ALLOWED_DOMAINS ||
     process.env.NEXT_PUBLIC_ALLOWED_DOMAINS ||
     ''
@@ -50,6 +53,7 @@ export default function RootLayout({
     .split(',')
     .map((d) => d.trim().toLowerCase())
     .filter(Boolean);
+  envAllowedDomains.push(...extraDomains);
 
   const appUrl = process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || '';
   if (appUrl) {
@@ -76,7 +80,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="application-name" content="Saqib Visuals" />
+        <meta name="application-name" content="Sohaib Agency Hub" />
 
         {/* Sonic-speed preconnect & dns-prefetch to zero out network latency */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
