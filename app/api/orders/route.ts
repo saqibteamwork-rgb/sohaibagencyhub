@@ -100,6 +100,22 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, error: error.message }, { status: 500 });
     }
 
+    // Trigger Admin Notification for New Order
+    try {
+      await supabaseAdmin.from('admin_notifications').insert({
+        id: `notif-ord-${Date.now()}`,
+        type: 'new_order',
+        title: `🛍️ New Order: ${serviceTitle}`,
+        message: `Client ${userId} placed an order for ${packageTier} tier ($${price}). Order ID: #${orderId}`,
+        reference_id: orderId,
+        data: { orderId, userId, serviceId, serviceTitle, packageTier, price },
+        is_read: false,
+        created_at: new Date().toISOString()
+      });
+    } catch (notifErr) {
+      console.warn('Failed to insert order admin notification:', notifErr);
+    }
+
     return NextResponse.json({ success: true, order: data });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Internal Server Error';

@@ -70,12 +70,15 @@ import {
   FaArrowRight,
   FaArrowDown,
   FaClone,
-  FaPalette
+  FaPalette,
+  FaStar
 } from 'react-icons/fa6';
 import { AdminSeoStudio } from './AdminSeoStudio';
 import { AdminSecurityCredentialsStudio } from './AdminSecurityCredentialsStudio';
 import { AdminAnalyticsDashboard } from './AdminAnalyticsDashboard';
 import { AdminPromoPopupStudio } from './AdminPromoPopupStudio';
+import { AdminNotificationBell } from './AdminNotificationBell';
+import { AdminReviewModerationStudio } from './AdminReviewModerationStudio';
 
 export {
   type SiteBannerConfig,
@@ -248,7 +251,8 @@ export type AdminSettingsScreenId =
   | 'ui'
   | 'seo'
   | 'security'
-  | 'promo_popup';
+  | 'promo_popup'
+  | 'reviews';
 
 interface PlushOption {
   value: string;
@@ -573,6 +577,8 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
         return canManageSiteConfig;
       case 'security':
         return canManageAdmins;
+      case 'reviews':
+        return true;
       default:
         return true;
     }
@@ -1618,6 +1624,11 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                   </>
                 )}
               </button>
+              <AdminNotificationBell
+                onNavigateScreen={openSettingsScreen}
+                playPopSound={playPopSound}
+                showToast={showToast}
+              />
               <button
                 type="button"
                 onClick={exitSecretAdminPortal}
@@ -1635,6 +1646,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
           <div className="flex items-center gap-1.5 overflow-x-auto pt-2 border-t border-white/15 scrollbar-none pr-8 overscroll-x-contain pb-1">
             {[
               { id: 'dashboard' as const, label: '📊 System Dashboard', badge: 'Live Radar' },
+              { id: 'reviews' as const, label: '⭐ Reviews Moderation', badge: 'Live' },
               { id: 'home' as const, label: '⚙️ Settings Menu', badge: 'Home' },
               {
                 id: 'visibility' as const,
@@ -2544,6 +2556,32 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                       <div className="flex items-center justify-between sm:justify-end gap-2 flex-shrink-0 pl-13 sm:pl-0 w-full sm:w-auto">
                         <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold">
                           {siteConfig.paymentMethods[0]?.accountNumber || '0347-8936242'}
+                        </span>
+                        <FaChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                      </div>
+                    </div>
+
+                    {/* Row: Customer Reviews Moderation */}
+                    <div
+                      onClick={() => openSettingsScreen('reviews')}
+                      className="p-3.5 sm:p-4 hover:bg-amber-50/60 transition flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 cursor-pointer border-b border-slate-100"
+                    >
+                      <div className="flex items-center gap-3 min-w-0 flex-1">
+                        <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-600 text-white flex items-center justify-center shadow-sm flex-shrink-0">
+                          <FaStar className="w-4 h-4" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="text-xs sm:text-sm font-extrabold text-slate-900 leading-snug break-words">
+                            Customer Reviews Moderation Studio
+                          </div>
+                          <div className="text-[11px] font-semibold text-slate-600 truncate">
+                            Approve or reject client testimonials before displaying live • Discard spam
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between sm:justify-end gap-2 flex-shrink-0 pl-13 sm:pl-0 w-full sm:w-auto">
+                        <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-amber-100 text-amber-800 border border-amber-300">
+                          Moderate
                         </span>
                         <FaChevronRight className="w-3.5 h-3.5 text-slate-400" />
                       </div>
@@ -10061,6 +10099,15 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
           onReturnHome={() => openSettingsScreen('home')}
         />
       )}
+      {/* ==================== SCREEN 12: CUSTOMER REVIEWS MODERATION STUDIO ==================== */}
+      {activeScreen === 'reviews' && hasScreenPermission('reviews') && (
+        <AdminReviewModerationStudio
+          showToast={showToast}
+          playPopSound={playPopSound}
+          onExit={() => openSettingsScreen('home')}
+        />
+      )}
+
       {/* ==================== SCREEN 10: ADMIN SECURITY & ANTI-CLONE KILLSWITCH ==================== */}
       {activeScreen === 'security' && hasScreenPermission('security') && (
         <AdminSecurityCredentialsStudio

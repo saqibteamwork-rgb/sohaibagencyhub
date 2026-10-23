@@ -102,7 +102,7 @@ export async function getServerStoreData(): Promise<ServerStoreData> {
       }));
     }
   } catch {
-    // Fallback to default
+    // Graceful fallback to default
   }
 
   // 3. Fetch Site Config
@@ -143,12 +143,13 @@ export async function getServerStoreData(): Promise<ServerStoreData> {
     } catch {}
   }
 
-  // 4. Fetch Reviews
+  // 4. Fetch Reviews (Only Approved Reviews on Server-Side Storefront)
   let reviews = DEFAULT_REVIEWS;
   try {
     const { data: revRows } = await supabaseAdmin
       .from('reviews')
       .select('*')
+      .or('status.eq.approved,status.is.null')
       .order('created_at', { ascending: false });
 
     if (revRows && revRows.length > 0) {

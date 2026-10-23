@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/src/lib/supabaseAdmin';
 import {
-  DEFAULT_PAYMENT_PROOFS,
   PaymentProofRequest
 } from '@/src/types/paymentProof';
 import { verifyAdminRequest } from '@/src/lib/serverSecurity';
@@ -130,6 +129,22 @@ export async function POST(req: Request) {
 
     if (error) {
       return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    }
+
+    // Trigger Admin Notification for Payment Proof
+    try {
+      await supabaseAdmin.from('admin_notifications').insert({
+        id: `notif-pay-${Date.now()}`,
+        type: 'payment_proof',
+        title: `💳 New Payment Proof (${proof.method})`,
+        message: `Deposit proof of Rs. ${cleanAmount} via ${proof.method} (Trx: ${proof.trxId || 'N/A'}) by ${proof.senderAccountName || userId} submitted.`,
+        reference_id: proof.id,
+        data: { proofId: proof.id, userId, amount: cleanAmount, method: proof.method, trxId: proof.trxId },
+        is_read: false,
+        created_at: new Date().toISOString()
+      });
+    } catch (notifErr) {
+      console.warn('Failed to insert payment proof notification:', notifErr);
     }
 
     return NextResponse.json({ success: true, proof: data });

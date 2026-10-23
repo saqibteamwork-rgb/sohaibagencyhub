@@ -10,6 +10,7 @@ export const DEFAULT_REVIEWS: Array<{
   rating: number;
   comment: string;
   verified: boolean;
+  status?: string;
   created_at?: string;
 }> = [];
 
@@ -23,12 +24,23 @@ function cleanReviewEncoding(text: string): string {
     .replace(/â€/g, '"');
 }
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
-    const { data, error } = await supabaseAdmin
+    const { searchParams } = new URL(req.url);
+    const auth = verifyAdminRequest(req);
+    const showAll = auth.authorized && searchParams.get('all') === 'true';
+
+    let query = supabaseAdmin
       .from('reviews')
       .select('*')
       .order('created_at', { ascending: false });
+
+    // Non-admin or storefront queries only receive approved reviews
+    if (!showAll) {
+      query = query.or('status.eq.approved,status.is.null');
+    }
+
+    const { data, error } = await query;
 
     if (error || !data) {
       return NextResponse.json({ success: true, source: 'empty', reviews: [] });
@@ -36,6 +48,7 @@ export async function GET() {
 
     const sanitizedReviews = data.map((r) => ({
       ...r,
+      status: r.status || 'approved',
       name: cleanReviewEncoding(r.name || ''),
       service: cleanReviewEncoding(r.service || ''),
       comment: cleanReviewEncoding(r.comment || ''),
@@ -63,36 +76,82 @@ export async function POST(req: Request) {
       );
     }
 
-    // Default to verified: true unless explicitly set to false
     const auth = verifyAdminRequest(req);
-    const verified = body.verified !== undefined ? Boolean(body.verified) : true;
+    // If submitted by authorized admin, allow direct approval; public users are always pending
+    const status = auth.authorized ? (body.status || 'approved') : 'pending';
+    const verified = auth.authorized ? (body.verified !== undefined ? Boolean(body.verified) : true) : false;
+
+    const reviewId = `rev-${Date.now()}-${Math.floor(100 + Math.random() * 900)}`;
 
     const { data, error } = await supabaseAdmin
       .from('reviews')
       .insert({
-        id: `rev-${Date.now()}-${Math.floor(100 + Math.random() * 900)}`,
+        id: reviewId,
         name,
         service,
         rating,
         comment,
         verified,
+        status,
         created_at: new Date().toISOString(),
       })
       .select()
       .single();
 
     if (error) {
-      return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+      // In case status column doesn't exist yet in Supabase, fallback without status
+      const fallbackInsert = await supabaseAdmin
+        .from('reviews')
+        .insert({
+          id: reviewId,
+          name,
+          service,
+          rating,
+          comment,
+          verified,
+          created_at: new Date().toISOString(),
+        })
+        .select()
+        .single();
+
+      if (fallbackInsert.error) {
+        return NextResponse.json({ success: false, error: fallbackInsert.error.message }, { status: 500 });
+      }
+    }
+
+    // Trigger Admin Notification for the review
+    try {
+      await supabaseAdmin.from('admin_notifications').insert({
+        id: `notif-rev-${Date.now()}`,
+        type: 'new_review',
+        title: `⭐ New Review (${rating}★) - ${name}`,
+        message: `${name} submitted a ${rating}-star review for "${service}": "${comment.slice(0, 80)}${comment.length > 80 ? '...' : ''}"`,
+        reference_id: reviewId,
+        data: { reviewId, name, service, rating, comment, status },
+        is_read: false,
+        created_at: new Date().toISOString()
+      });
+    } catch (notifErr) {
+      console.warn('Failed to insert review admin notification:', notifErr);
     }
 
     const sanitized = {
-      ...data,
-      name: cleanReviewEncoding(data.name || ''),
-      service: cleanReviewEncoding(data.service || ''),
-      comment: cleanReviewEncoding(data.comment || ''),
+      ...(data || {}),
+      id: reviewId,
+      name: cleanReviewEncoding(name),
+      service: cleanReviewEncoding(service),
+      comment: cleanReviewEncoding(comment),
+      rating,
+      verified,
+      status,
+      created_at: new Date().toISOString()
     };
 
-    return NextResponse.json({ success: true, review: sanitized });
+    return NextResponse.json({
+      success: true,
+      review: sanitized,
+      pendingApproval: status === 'pending'
+    });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Internal Server Error';
     return NextResponse.json({ success: false, error: message }, { status: 500 });
@@ -118,6 +177,15 @@ export async function PATCH(req: Request) {
     }
 
     const updates: Record<string, any> = {};
+    if (body.status !== undefined) {
+      const cleanStatus = sanitizeString(body.status).toLowerCase();
+      if (['pending', 'approved', 'rejected'].includes(cleanStatus)) {
+        updates.status = cleanStatus;
+        if (cleanStatus === 'approved') {
+          updates.verified = true;
+        }
+      }
+    }
     if (body.verified !== undefined) updates.verified = Boolean(body.verified);
     if (body.name) updates.name = sanitizeString(body.name).slice(0, 80);
     if (body.service) updates.service = sanitizeString(body.service).slice(0, 100);
@@ -137,6 +205,7 @@ export async function PATCH(req: Request) {
 
     const sanitized = {
       ...data,
+      status: data.status || 'approved',
       name: cleanReviewEncoding(data.name || ''),
       service: cleanReviewEncoding(data.service || ''),
       comment: cleanReviewEncoding(data.comment || ''),

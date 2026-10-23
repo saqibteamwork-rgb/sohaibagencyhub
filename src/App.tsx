@@ -947,8 +947,12 @@ export default function App({
       });
       const data = await res.json();
       if (data && data.success && data.review) {
-        setReviews((prev) => [data.review, ...prev]);
-        showToast('Review submitted successfully! Shukriya!');
+        if (data.pendingApproval) {
+          showToast('Shukriya! Review submit hogya hai aur admin approval ke baad live display hoga.');
+        } else {
+          setReviews((prev) => [data.review, ...prev]);
+          showToast('Review submitted successfully! Shukriya!');
+        }
         return true;
       } else {
         showToast(data.error || 'Failed to submit review');
