@@ -1507,7 +1507,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
               <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border-2 border-emerald-400 shadow-lg flex-shrink-0 bg-slate-900">
                 <img
                   src={siteConfig.banner.portraitUrl}
-                  alt="Muhammad Saqib Admin"
+                  alt="Sohaib Admin"
                   className="w-full h-full object-cover"
                 />
                 <span className="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-950"></span>
@@ -2864,7 +2864,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
           <h3 className="text-xl font-black text-slate-900 mb-2">🔒 Permission Restricted</h3>
           <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
             Aapka sub-admin account (<code className="font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded">{currentAdminUser}</code>) is system ko manage karne ki permission nahi rakhta.
-            Ise open ya edit karne ke liye Superadmin (<b className="text-indigo-600">Muhammad Saqib</b>) se access enable karwayein.
+            Ise open ya edit karne ke liye Superadmin (<b className="text-indigo-600">Sohaib</b>) se access enable karwayein.
           </p>
           <button
             type="button"
@@ -4515,7 +4515,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                             </h4>
                             <p className="text-xs font-medium text-slate-700">
                               {toolDesc ||
-                                'Instant online digital utility powered by Muhammad Saqib.'}
+                                'Instant online digital utility powered by Sohaib.'}
                             </p>
                           </div>
 
@@ -5016,7 +5016,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                         }))
                       }
                       className="w-full px-3.5 py-2.5 rounded-xl bg-white border-2 border-pink-300 font-bold text-xs sm:text-sm text-slate-900 shadow-inner"
-                      placeholder="e.g. MUHAMMAD SAQIB • VISUALS HUB"
+                      placeholder="e.g. SOHAIB AGENCY • OFFICIAL HUB"
                     />
                   </div>
                 )}
@@ -5137,7 +5137,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                                   }
                                 }}
                                 className="w-full px-3.5 py-2 rounded-xl bg-white border-2 border-pink-300 font-bold text-xs sm:text-sm text-slate-900 shadow-inner"
-                              placeholder="e.g. Muhammad Saqib"
+                              placeholder="e.g. Sohaib"
                             />
                           </div>
                           <div>
@@ -5166,7 +5166,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                                   }
                                 }}
                                 className="w-full px-3.5 py-2 rounded-xl bg-white border-2 border-pink-300 font-bold text-xs sm:text-sm text-slate-900 shadow-inner"
-                              placeholder="e.g. — Saqib Visuals"
+                              placeholder="e.g. Agency Hub"
                             />
                           </div>
                         </div>
@@ -5625,7 +5625,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                     shape="circle"
                     presets={[
                       {
-                        label: 'Muhammad Saqib Official',
+                        label: 'Sohaib Official Pic',
                         url: 'https://ik.imagekit.io/mrsaqib/mrsaqib242-img25_7oG52NZUY.png',
                       },
                       {
@@ -7123,7 +7123,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                       </label>
                       <input
                         type="text"
-                        value={siteConfig.storeBars?.statusPanelTitle ?? 'SAQIB VISUALS LIVE PANEL STATUS:'}
+                        value={siteConfig.storeBars?.statusPanelTitle ?? 'SOHAIB AGENCY LIVE PANEL STATUS:'}
                         onChange={(e) =>
                           onUpdateSiteConfig((prev) => ({
                             ...prev,
@@ -7134,7 +7134,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                           }))
                         }
                         className="w-full px-3 py-2 rounded-xl bg-white border-2 border-indigo-300 font-bold text-xs text-slate-900 shadow-inner"
-                        placeholder="e.g. SAQIB VISUALS LIVE PANEL STATUS:"
+                        placeholder="e.g. SOHAIB AGENCY LIVE PANEL STATUS:"
                       />
                     </div>
                     <div>
@@ -7324,7 +7324,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 server-pulse-dot"></span>
                       <span className="font-display font-bold text-slate-900 uppercase tracking-wider text-[11px]">
-                        {siteConfig.storeBars?.statusPanelTitle ?? 'SAQIB VISUALS LIVE PANEL STATUS:'}
+                        {siteConfig.storeBars?.statusPanelTitle ?? 'SOHAIB AGENCY LIVE PANEL STATUS:'}
                       </span>
                       <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-[10px] border border-emerald-300">
                         {siteConfig.storeBars?.statusPanelBadge ?? 'ALL 3 SERVERS 99.9% ONLINE'}
@@ -7939,7 +7939,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                                 e.target.value
                               )
                             }
-                            placeholder="e.g. Muhammad Saqib"
+                            placeholder="e.g. Sohaib"
                             className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border-2 border-emerald-300 font-bold text-xs sm:text-sm text-slate-900"
                           />
                         </div>
@@ -8500,7 +8500,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                       <span className="w-7 h-7 rounded-lg bg-pink-600 text-white flex items-center justify-center text-xs font-bold">
                         MS
                       </span>
-                      <span className="text-xs font-extrabold text-white">Saqib Visuals</span>
+                      <span className="text-xs font-extrabold text-white">Sohaib Agency</span>
                     </div>
 
                     {(siteConfig.storeBars?.showHeaderWalletPill ?? activeVisibility.showHeaderWalletPill) ? (
@@ -8862,7 +8862,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                             contact: { ...prev.contact, whatsappWidgetName: e.target.value }
                           }))
                         }
-                        placeholder="Muhammad Saqib"
+                        placeholder="Sohaib"
                         className="w-full px-3 py-2 rounded-xl bg-white border border-emerald-300 font-bold text-xs text-slate-900"
                       />
                     </div>
@@ -8884,7 +8884,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                         shape="circle"
                         presets={[
                           {
-                            label: 'Saqib Official Pic',
+                            label: 'Sohaib Official Pic',
                             url: 'https://testuisaqib.vercel.app/saqib-pic.png',
                           },
                         ]}
@@ -8926,7 +8926,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                             contact: { ...prev.contact, whatsappWidgetGreeting: e.target.value }
                           }))
                         }
-                        placeholder="Assalam-o-Alaikum! Welcome to Saqib Visuals Hub..."
+                        placeholder="Assalam-o-Alaikum! Welcome to Sohaib Agency Hub..."
                         className="w-full px-3 py-2 rounded-xl bg-white border border-emerald-300 font-medium text-xs text-slate-900"
                       />
                     </div>
@@ -9334,7 +9334,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                           footer: { ...prev.footer, brandName: e.target.value }
                         }))
                       }
-                      placeholder="🚀 Muhammad Saqib"
+                      placeholder="🚀 Sohaib Agency Hub"
                       className="w-full px-3.5 py-2.5 rounded-xl bg-white border-2 border-indigo-300 font-bold text-xs sm:text-sm text-slate-900"
                     />
                   </div>
@@ -9682,7 +9682,7 @@ export const AdminStepByStepSettingsHub: React.FC<AdminStepByStepSettingsHubProp
                       },
                       {
                         key: 'showAboutTab' as const,
-                        title: 'Navigation Tab: About Saqib',
+                        title: 'Navigation Tab: About Sohaib',
                         desc: 'Show or hide About tab in Header & Mobile menu'
                       },
                       {

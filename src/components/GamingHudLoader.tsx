@@ -94,7 +94,7 @@ export function GamingHudLoader() {
           <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-white/90 shadow-[0_0_24px_rgba(236,72,153,0.65)] bg-slate-900 flex items-center justify-center">
             <img
               src="https://ik.imagekit.io/mrsaqib/mrsaqib242-img25_7oG52NZUY.png"
-              alt="Muhammad Saqib"
+              alt="Sohaib"
               className="w-full h-full object-cover object-top"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.display = 'none';
@@ -115,10 +115,10 @@ export function GamingHudLoader() {
         <div className="space-y-1 mb-5">
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-cyan-950/70 border border-cyan-400/40 text-[9.5px] font-mono tracking-widest text-cyan-300 uppercase shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            SAQIB VISUALS GAMING ENGINE
+            SOHAIB AGENCY GAMING ENGINE
           </div>
           <h1 className="text-xl sm:text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-pink-300 drop-shadow-[0_2px_8px_rgba(255,255,255,0.4)]">
-            MUHAMMAD SAQIB
+            SOHAIB AGENCY
           </h1>
           <p className="text-[11px] font-mono tracking-wider text-slate-400 uppercase">
             SMM STORE • CAPCUT • AI TOOLS

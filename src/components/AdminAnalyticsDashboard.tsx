@@ -306,10 +306,10 @@ export const AdminAnalyticsDashboard: React.FC<AdminAnalyticsDashboardProps> = (
       },
       {
         id: 'tab_about',
-        title: 'About Muhammad Saqib Agency Page (/about)',
+        title: 'About Sohaib Agency Page (/about)',
         category: 'navigation',
         categoryLabel: 'Navigation & Routes',
-        description: 'Official biography, badges, and background of Muhammad Saqib Visuals.',
+        description: 'Official biography, badges, and background of Sohaib Agency Hub.',
         isEnabled: siteConfig.visibility?.showAboutTab !== false,
         targetScreen: 'visibility',
         onToggle: () => {

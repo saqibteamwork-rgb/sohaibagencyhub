@@ -488,9 +488,9 @@ WHERE username = 'saqib';`;
                     Storefront ke main hero section par jo naam ata hai:
                   </p>
                   <div className="bg-black/50 p-2 rounded-lg text-[11px] space-y-1 mb-4 font-mono text-slate-300">
-                    <div>Main: <span className="text-pink-400">{siteConfig.banner.mainTitle || 'Muhammad Saqib'}</span></div>
-                    <div>Highlight: <span className="text-indigo-400">{siteConfig.banner.highlightTitle || '— Saqib Visuals'}</span></div>
-                    <div>Top Strip: <span className="text-emerald-400">{siteConfig.banner.topStripTitle || 'MUHAMMAD SAQIB • VISUALS HUB'}</span></div>
+                    <div>Main: <span className="text-pink-400">{siteConfig.banner.mainTitle || 'Sohaib'}</span></div>
+                    <div>Highlight: <span className="text-indigo-400">{siteConfig.banner.highlightTitle || 'Agency Hub'}</span></div>
+                    <div>Top Strip: <span className="text-emerald-400">{siteConfig.banner.topStripTitle || 'SOHAIB AGENCY • OFFICIAL HUB'}</span></div>
                   </div>
                 </div>
 
@@ -515,7 +515,7 @@ WHERE username = 'saqib';`;
                     Website ke footer aur official copyright tagline ka brand naam:
                   </p>
                   <div className="bg-black/50 p-2 rounded-lg text-[11px] space-y-1 mb-4 font-mono text-slate-300">
-                    <div>Brand: <span className="text-pink-400">{siteConfig.footer.brandName || '🚀 Muhammad Saqib'}</span></div>
+                    <div>Brand: <span className="text-pink-400">{siteConfig.footer.brandName || '🚀 Sohaib Agency Hub'}</span></div>
                     <div>Tagline: <span className="text-slate-400 text-[10px] line-clamp-1">{siteConfig.footer.copyrightTagline}</span></div>
                   </div>
                 </div>

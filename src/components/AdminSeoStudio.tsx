@@ -144,7 +144,7 @@ export const AdminSeoStudio: React.FC<AdminSeoStudioProps> = ({
 <meta property="og:title" content="${seo.ogTitle || seo.metaTitle}" />
 <meta property="og:description" content="${seo.ogDescription || seo.metaDescription}" />
 <meta property="og:image" content="${seo.ogImageUrl || siteConfig.banner.portraitUrl}" />
-<meta property="og:site_name" content="${siteConfig.footer.brandName || 'Saqib Visuals'}" />
+<meta property="og:site_name" content="${siteConfig.footer.brandName || 'Sohaib Agency Hub'}" />
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="${seo.twitterCard || 'summary_large_image'}" />
@@ -325,7 +325,7 @@ ${JSON.stringify(schemaJsonObj, null, 2)}
                     type="text"
                     value={seo.metaTitle}
                     onChange={(e) => updateSeoField('metaTitle', e.target.value)}
-                    placeholder="Muhammad Saqib | Saqib Visuals — SMM Store, CapCut, AI & SIM Info Hub"
+                    placeholder="Sohaib Agency Hub — Digital & AI Services, SMM Store & Web Tools"
                     className="w-full px-3.5 py-2.5 rounded-xl bg-white border-2 border-indigo-200 font-bold text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-500"
                   />
                 </div>
@@ -351,7 +351,7 @@ ${JSON.stringify(schemaJsonObj, null, 2)}
                     rows={4}
                     value={seo.metaDescription}
                     onChange={(e) => updateSeoField('metaDescription', e.target.value)}
-                    placeholder="Instant AI Subscriptions, CapCut Pro, Lovable, SMM Services, TikTok Monetized Accounts, Franchise SIM Info & NADRA Services by Muhammad Saqib."
+                    placeholder="Instant CapCut Pro, Lovable Pro, Gemini 18M, ChatGPT Plus, TikTok UK/USA Agency Accounts, Franchise SIM Records & SMM Services by Sohaib Agency Hub."
                     className="w-full p-3 rounded-xl bg-white border-2 border-indigo-200 font-semibold text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-500"
                   />
                 </div>
@@ -365,7 +365,7 @@ ${JSON.stringify(schemaJsonObj, null, 2)}
                       type="text"
                       value={seo.author}
                       onChange={(e) => updateSeoField('author', e.target.value)}
-                      placeholder="Muhammad Saqib"
+                      placeholder="Sohaib Agency"
                       className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 font-bold text-xs text-slate-900"
                     />
                   </div>
@@ -458,14 +458,14 @@ ${JSON.stringify(schemaJsonObj, null, 2)}
                         🌐
                       </div>
                       <div className="text-[12px] text-slate-700 leading-tight">
-                        <span className="font-semibold">{siteConfig.footer.brandName || 'Saqib Visuals'}</span>
+                        <span className="font-semibold">{siteConfig.footer.brandName || 'Sohaib Agency Hub'}</span>
                         <span className="text-slate-400 mx-1">›</span>
                         <span className="text-slate-500 font-mono-code text-[11px] truncate">{effectiveCanonical.replace(/^https?:\/\//, '')}</span>
                       </div>
                     </div>
 
                     <h4 className="text-base sm:text-lg font-normal text-[#1a0dab] hover:underline cursor-pointer leading-snug">
-                      {seo.metaTitle || 'Muhammad Saqib | Saqib Visuals'}
+                      {seo.metaTitle || 'Sohaib Agency Hub'}
                     </h4>
 
                     <p className="text-xs sm:text-sm text-[#4d5156] leading-relaxed line-clamp-3">
