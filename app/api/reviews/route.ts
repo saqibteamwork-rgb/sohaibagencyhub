@@ -3,16 +3,8 @@ import { supabaseAdmin } from '@/src/lib/supabaseAdmin';
 import { verifyAdminRequest } from '@/src/lib/serverSecurity';
 import { sanitizeString } from '@/src/lib/securitySanitizer';
 
-export const DEFAULT_REVIEWS: Array<{
-  id: string;
-  name: string;
-  service: string;
-  rating: number;
-  comment: string;
-  verified: boolean;
-  status?: string;
-  created_at?: string;
-}> = [];
+import { DEFAULT_REVIEWS } from '@/src/data/defaultReviews';
+export { DEFAULT_REVIEWS };
 
 function cleanReviewEncoding(text: string): string {
   if (!text) return '';
@@ -42,8 +34,8 @@ export async function GET(req: Request) {
 
     const { data, error } = await query;
 
-    if (error || !data) {
-      return NextResponse.json({ success: true, source: 'empty', reviews: [] });
+    if (error || !data || data.length === 0) {
+      return NextResponse.json({ success: true, source: 'default_seed', reviews: DEFAULT_REVIEWS });
     }
 
     const sanitizedReviews = data.map((r) => ({

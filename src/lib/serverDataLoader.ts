@@ -8,7 +8,7 @@ import {
   WebToolItem
 } from '../data/defaultCatalog';
 import { DEFAULT_SITE_CONFIG, SiteSettingsConfig, deepMergeSiteConfig } from '../types/siteConfig';
-import { DEFAULT_REVIEWS } from '@/app/api/reviews/route';
+import { DEFAULT_REVIEWS } from '../data/defaultReviews';
 
 export interface ServerStoreData {
   services: StoreService[];

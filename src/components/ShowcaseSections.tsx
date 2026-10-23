@@ -1,3 +1,4 @@
+import { DEFAULT_REVIEWS } from '../data/defaultReviews';
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -831,134 +832,130 @@ export const ShowcaseSections: React.FC<ShowcaseSectionsProps> = ({
             </div>
           </div>
 
-          {/* Verified Client Testimonials (Real Data from Supabase Database) */}
-          {reviews && reviews.length > 0 ? (
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
-                {reviews.slice(0, visibleCount).map((rev: any, idx: number) => {
-                  const name = rev.name || 'Verified Client';
-                  const initials =
-                    name
-                      .split(' ')
-                      .filter(Boolean)
-                      .map((w: string) => w[0])
-                      .slice(0, 2)
-                      .join('')
-                      .toUpperCase() || 'VC';
-                  const ratingCount = Math.max(1, Math.min(5, Number(rev.rating) || 5));
-                  const stars = '★'.repeat(ratingCount);
+          {/* Verified Client Testimonials Infinite Continuous Marquee (Left & Right Scrolling) */}
+          {(() => {
+            const effectiveReviews = reviews && reviews.length > 0 ? reviews : DEFAULT_REVIEWS;
+            const row1 = effectiveReviews.filter((_: any, i: number) => i % 2 === 0);
+            const row2 = effectiveReviews.filter((_: any, i: number) => i % 2 !== 0);
+            const safeRow1 = row1.length > 0 ? row1 : effectiveReviews;
+            const safeRow2 = row2.length > 0 ? row2 : effectiveReviews;
 
-                  return (
-                    <div
-                      key={rev.id || idx}
-                      className="bg-white/85 p-4 rounded-2xl border border-white shadow-sm flex flex-col justify-between space-y-3 transition hover:shadow-md"
-                    >
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between">
-                          <span className="text-amber-500 text-xs tracking-wider">{stars}</span>
-                          {rev.verified !== false ? (
-                            <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-extrabold">
-                              Verified Buyer ✓
-                            </span>
-                          ) : (
-                            <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[9px] font-extrabold">
-                              Client Review
-                            </span>
-                          )}
+            return (
+              <div className="space-y-4 pt-2">
+                <div className="space-y-3 overflow-hidden marquee-wrapper pt-1 pb-1">
+                  {/* Row 1: Left-scrolling Reviews */}
+                  <div className="marquee-track-left gap-3.5">
+                    {[...safeRow1, ...safeRow1, ...safeRow1].map((rev: any, idx: number) => {
+                      const name = rev.name || 'Verified Client';
+                      const initials =
+                        name
+                          .split(' ')
+                          .filter(Boolean)
+                          .map((w: string) => w[0])
+                          .slice(0, 2)
+                          .join('')
+                          .toUpperCase() || 'VC';
+                      const ratingCount = Math.max(1, Math.min(5, Number(rev.rating) || 5));
+                      const stars = '★'.repeat(ratingCount);
+
+                      return (
+                        <div
+                          key={`rev-row1-${rev.id || idx}-${idx}`}
+                          className="w-[280px] sm:w-[350px] bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white/90 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-3 flex-shrink-0 text-left select-none"
+                        >
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                              <span className="text-amber-500 text-xs tracking-wider font-black">{stars}</span>
+                              {rev.verified !== false ? (
+                                <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-extrabold flex items-center gap-1">
+                                  <i className="fa-solid fa-circle-check text-emerald-600"></i> Verified Buyer ✓
+                                </span>
+                              ) : (
+                                <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[9px] font-extrabold">
+                                  Customer Review
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs font-medium text-slate-700 leading-relaxed line-clamp-3">
+                              &ldquo;{rev.comment}&rdquo;
+                            </p>
+                          </div>
+
+                          <div className="flex items-center gap-2.5 pt-2 border-t border-pink-100/80">
+                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 via-purple-600 to-indigo-600 text-white font-black text-xs flex items-center justify-center flex-shrink-0 shadow-sm">
+                              {initials}
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="text-xs font-extrabold text-slate-900 truncate">{name}</div>
+                              <div className="text-[10px] font-bold text-pink-600 truncate">{rev.service || 'Verified Service'}</div>
+                            </div>
+                          </div>
                         </div>
-                        <p className="text-xs font-medium text-slate-700 leading-relaxed">
-                          &ldquo;{rev.comment}&rdquo;
-                        </p>
-                      </div>
+                      );
+                    })}
+                  </div>
 
-                      <div className="space-y-2 pt-2 border-t border-pink-100">
-                        <div className="flex items-center gap-2.5">
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-indigo-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0">
-                            {initials}
+                  {/* Row 2: Right-scrolling Reviews */}
+                  <div className="marquee-track-right gap-3.5">
+                    {[...safeRow2, ...safeRow2, ...safeRow2].map((rev: any, idx: number) => {
+                      const name = rev.name || 'Verified Client';
+                      const initials =
+                        name
+                          .split(' ')
+                          .filter(Boolean)
+                          .map((w: string) => w[0])
+                          .slice(0, 2)
+                          .join('')
+                          .toUpperCase() || 'VC';
+                      const ratingCount = Math.max(1, Math.min(5, Number(rev.rating) || 5));
+                      const stars = '★'.repeat(ratingCount);
+
+                      return (
+                        <div
+                          key={`rev-row2-${rev.id || idx}-${idx}`}
+                          className="w-[280px] sm:w-[350px] bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white/90 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-3 flex-shrink-0 text-left select-none"
+                        >
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                              <span className="text-amber-500 text-xs tracking-wider font-black">{stars}</span>
+                              {rev.verified !== false ? (
+                                <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-extrabold flex items-center gap-1">
+                                  <i className="fa-solid fa-circle-check text-emerald-600"></i> Verified Buyer ✓
+                                </span>
+                              ) : (
+                                <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[9px] font-extrabold">
+                                  Customer Review
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs font-medium text-slate-700 leading-relaxed line-clamp-3">
+                              &ldquo;{rev.comment}&rdquo;
+                            </p>
                           </div>
-                          <div className="min-w-0">
-                            <div className="text-xs font-extrabold text-slate-900 truncate">{name}</div>
-                            <div className="text-[10px] font-bold text-pink-600 truncate">{rev.service || 'Verified Service'}</div>
+
+                          <div className="flex items-center gap-2.5 pt-2 border-t border-pink-100/80">
+                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 via-sky-600 to-emerald-600 text-white font-black text-xs flex items-center justify-center flex-shrink-0 shadow-sm">
+                              {initials}
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="text-xs font-extrabold text-slate-900 truncate">{name}</div>
+                              <div className="text-[10px] font-bold text-indigo-600 truncate">{rev.service || 'Verified Service'}</div>
+                            </div>
                           </div>
                         </div>
-
-                        {/* Admin Inline Actions */}
-                        {isAdmin && (
-                          <div className="flex items-center justify-between pt-2 border-t border-slate-200/70 text-[10px]">
-                            <button
-                              type="button"
-                              onClick={() => onToggleVerified && onToggleVerified(rev.id, rev.verified !== false)}
-                              className={`px-2 py-0.5 rounded-md font-bold transition cursor-pointer ${
-                                rev.verified !== false
-                                  ? 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
-                                  : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-                              }`}
-                              title="Click to toggle verification status"
-                            >
-                              {rev.verified !== false ? 'Verified ✓' : 'Pending ⏳'}
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => onDeleteReview && onDeleteReview(rev.id)}
-                              className="text-red-500 hover:text-red-700 font-bold flex items-center gap-1 hover:underline cursor-pointer"
-                              title="Delete review from database"
-                            >
-                              <i className="fa-solid fa-trash-can"></i> Delete
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* View More Reviews Button */}
-              {reviews.length > visibleCount && (
-                <div className="text-center pt-2">
-                  <button
-                    type="button"
-                    onClick={() => setVisibleCount((prev) => prev + 6)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/90 hover:bg-white border border-pink-200 text-slate-800 font-extrabold text-xs shadow-sm hover:scale-105 transition cursor-pointer"
-                  >
-                    <i className="fa-solid fa-angles-down text-pink-500"></i>
-                    <span>View More Reviews ({reviews.length - visibleCount} more)</span>
-                  </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              )}
-            </div>
-          ) : (
-            <div className="bg-white/85 p-6 rounded-2xl border border-white shadow-sm text-center space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center mx-auto text-xl shadow-sm">
-                <i className="fa-solid fa-star"></i>
+
+                {/* Subtext info */}
+                <div className="flex items-center justify-center gap-2 text-center text-[11px] font-bold text-slate-500 pt-1">
+                  <i className="fa-solid fa-circle-info text-pink-500"></i>
+                  <span>Hover or touch any review to pause • Real WhatsApp deal history</span>
+                </div>
               </div>
-              <div className="text-sm font-extrabold text-slate-900">
-                100% Genuine Database Reviews
-              </div>
-              <p className="text-xs font-semibold text-slate-600 max-w-md mx-auto">
-                All client reviews on {fullBrand} are collected directly from verified customer orders. Have you used our services? Send your verified feedback to {brandOwner} on WhatsApp or write your review!
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setShowWriteModal(true)}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white font-extrabold text-xs shadow-md hover:scale-105 transition cursor-pointer"
-                >
-                  <i className="fa-solid fa-pen-to-square"></i> Write First Review
-                </button>
-                <a
-                  href={`https://wa.me/${primaryWaNumber}?text=${encodeURIComponent(
-                    `Assalam-o-Alaikum ${brandOwner}! I want to share my client review for my order.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold text-xs shadow-md hover:scale-105 transition"
-                >
-                  <i className="fa-brands fa-whatsapp text-sm"></i> Share via WhatsApp
-                </a>
-              </div>
-            </div>
-          )}
+            );
+          })()}
         </div>
 
         {/* ==================== INTERACTIVE WRITE A REVIEW MODAL ==================== */}
