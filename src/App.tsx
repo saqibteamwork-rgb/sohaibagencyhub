@@ -2898,7 +2898,7 @@ export default function App({
               <div className={`relative flex flex-col ${siteConfig.banner.showPortraitPhoto !== false ? 'md:flex-row' : ''} items-center pt-1 sm:pt-2`}>
                 {/* Left: 3D Thick Circular Glass Frame + Floating CapCut, AI, TikTok & SIM Badges */}
                 {siteConfig.banner.showPortraitPhoto !== false && (
-                  <div data-scroll="left" className="relative flex-shrink-0 my-2 sm:my-3 md:my-0 z-20 mx-auto">
+                  <div data-scroll="left" className="relative flex-shrink-0 my-6 sm:my-3 md:my-0 z-20 mx-auto">
                     {/* Main Portrait Lens */}
                     <div
                       onClick={() => {
@@ -2906,7 +2906,7 @@ export default function App({
                         setPosterModalOpen(true);
                       }}
                       onMouseEnter={() => playPopSound(440)}
-                      className="portrait-lens relative w-36 h-36 sm:w-60 sm:h-60 rounded-full acrylic-frame p-1.5 sm:p-2.5 cursor-pointer shadow-2xl group mx-auto"
+                      className="portrait-lens relative w-48 h-48 sm:w-60 sm:h-60 rounded-full acrylic-frame p-2 sm:p-2.5 cursor-pointer shadow-2xl group mx-auto"
                       title="Click to view full portrait"
                     >
                       <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-white/90 shadow-inner bg-gradient-to-b from-pink-100 to-blue-100">
@@ -2940,7 +2940,7 @@ export default function App({
                               onClick={() => filterStore('capcut_ai', '')}
                               onMouseEnter={() => playPopSound(680)}
                               title={siteConfig.banner.orbitBadge1Title || 'CapCut & Lovable Pro'}
-                              className="orbit-badge float-slow -top-2 -left-4 sm:-left-4 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-2xl flex items-center gap-1.5 cursor-pointer"
+                              className="orbit-badge float-slow -top-5 -left-6 sm:-top-3 sm:-left-8 px-2 py-1 sm:px-3 sm:py-1.5 rounded-2xl flex items-center gap-1.5 cursor-pointer shadow-md"
                             >
                               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-sm">
                                 <svg
@@ -2958,14 +2958,14 @@ export default function App({
                                   <rect x="2" y="15" width="20" height="4" rx="1" fill="currentColor" stroke="none" />
                                 </svg>
                               </div>
-                              <div className="text-left leading-none">
-                                <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-900">
-                                  {siteConfig.banner.orbitBadge1Title || 'CapCut & Lovable'}
-                                </div>
-                                <div className="text-[7px] sm:text-[8px] font-bold text-pink-600 uppercase">
-                                  {siteConfig.banner.orbitBadge1Sub || 'PRO UNLOCKED'}
-                                </div>
-                              </div>
+                              <div className="text-left leading-none max-w-[80px] sm:max-w-none">
+    <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-900 truncate">
+      {siteConfig.banner.orbitBadge1Title || 'CapCut & Lovable'}
+    </div>
+    <div className="text-[7px] sm:text-[8px] font-bold text-pink-600 uppercase truncate">
+      {siteConfig.banner.orbitBadge1Sub || 'PRO UNLOCKED'}
+    </div>
+  </div>
                             </button>
                           )}
 
@@ -2975,19 +2975,19 @@ export default function App({
                               onClick={() => filterStore('capcut_ai', '')}
                               onMouseEnter={() => playPopSound(720)}
                               title={siteConfig.banner.orbitBadge2Title || 'AI Suite'}
-                              className="orbit-badge float-reverse -top-2 -right-4 sm:-right-4 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-2xl flex items-center gap-1.5 cursor-pointer"
+                              className="orbit-badge float-reverse -top-5 -right-6 sm:-top-3 sm:-right-8 px-2 py-1 sm:px-3 sm:py-1.5 rounded-2xl flex items-center gap-1.5 cursor-pointer shadow-md"
                             >
                               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-500 text-white flex items-center justify-center shadow-sm">
                                 <i className="fa-solid fa-wand-magic-sparkles text-[10px] sm:text-xs"></i>
                               </div>
-                              <div className="text-left leading-none">
-                                <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-900">
-                                  {siteConfig.banner.orbitBadge2Title || 'AI Suite'}
-                                </div>
-                                <div className="text-[7px] sm:text-[8px] font-bold text-emerald-600 uppercase">
-                                  {siteConfig.banner.orbitBadge2Sub || 'GEMINI • CLAUDE'}
-                                </div>
-                              </div>
+                              <div className="text-left leading-none max-w-[80px] sm:max-w-none">
+    <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-900 truncate">
+      {siteConfig.banner.orbitBadge2Title || 'AI Suite'}
+    </div>
+    <div className="text-[7px] sm:text-[8px] font-bold text-emerald-600 uppercase truncate">
+      {siteConfig.banner.orbitBadge2Sub || 'GEMINI • CLAUDE'}
+    </div>
+  </div>
                             </button>
                           )}
 
@@ -2997,19 +2997,19 @@ export default function App({
                               onClick={() => filterStore('tiktok_fb', '')}
                               onMouseEnter={() => playPopSound(640)}
                               title={siteConfig.banner.orbitBadge3Title || 'TikTok UK/USA'}
-                              className="orbit-badge float-reverse -bottom-2 -left-3 sm:-left-3 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-2xl flex items-center gap-1.5 cursor-pointer"
+                              className="orbit-badge float-reverse -bottom-5 -left-6 sm:-bottom-3 sm:-left-8 px-2 py-1 sm:px-3 sm:py-1.5 rounded-2xl flex items-center gap-1.5 cursor-pointer shadow-md"
                             >
                               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-500 text-white flex items-center justify-center shadow-sm">
                                 <i className="fa-brands fa-tiktok text-[10px] sm:text-xs"></i>
                               </div>
-                              <div className="text-left leading-none">
-                                <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-900">
-                                  {siteConfig.banner.orbitBadge3Title || 'TikTok UK/USA'}
-                                </div>
-                                <div className="text-[7px] sm:text-[8px] font-bold text-rose-600 uppercase">
-                                  {siteConfig.banner.orbitBadge3Sub || 'ADS & BOOST'}
-                                </div>
-                              </div>
+                              <div className="text-left leading-none max-w-[80px] sm:max-w-none">
+    <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-900 truncate">
+      {siteConfig.banner.orbitBadge3Title || 'TikTok UK/USA'}
+    </div>
+    <div className="text-[7px] sm:text-[8px] font-bold text-rose-600 uppercase truncate">
+      {siteConfig.banner.orbitBadge3Sub || 'ADS & BOOST'}
+    </div>
+  </div>
                             </button>
                           )}
 
@@ -3019,19 +3019,19 @@ export default function App({
                               onClick={() => filterStore('franchise_sim', '')}
                               onMouseEnter={() => playPopSound(760)}
                               title={siteConfig.banner.orbitBadge4Title || 'SIM & NADRA'}
-                              className="orbit-badge float-slow -bottom-2 -right-3 sm:-right-3 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-2xl flex items-center gap-1.5 cursor-pointer"
+                              className="orbit-badge float-slow -bottom-5 -right-6 sm:-bottom-3 sm:-right-8 px-2 py-1 sm:px-3 sm:py-1.5 rounded-2xl flex items-center gap-1.5 cursor-pointer shadow-md"
                             >
                               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-sm">
                                 <i className="fa-solid fa-satellite-dish text-[10px] sm:text-xs"></i>
                               </div>
-                              <div className="text-left leading-none">
-                                <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-900">
-                                  {siteConfig.banner.orbitBadge4Title || 'SIM & NADRA'}
-                                </div>
-                                <div className="text-[7px] sm:text-[8px] font-bold text-blue-600 uppercase">
-                                  {siteConfig.banner.orbitBadge4Sub || 'CDR • FRC • LIVE'}
-                                </div>
-                              </div>
+                              <div className="text-left leading-none max-w-[80px] sm:max-w-none">
+    <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-900 truncate">
+      {siteConfig.banner.orbitBadge4Title || 'SIM & NADRA'}
+    </div>
+    <div className="text-[7px] sm:text-[8px] font-bold text-blue-600 uppercase truncate">
+      {siteConfig.banner.orbitBadge4Sub || 'CDR • FRC • LIVE'}
+    </div>
+  </div>
                             </button>
                           )}
                         </>
