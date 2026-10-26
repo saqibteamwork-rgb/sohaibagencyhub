@@ -5253,13 +5253,13 @@ export default function App({
           )}
         </div>
 
-        {/* Permanent Developer Attribution — Made by Saqib */}
+        {/* Attribution — Made with S ❤️ A */}
         <div className="text-[11px] text-slate-500 font-semibold flex items-center justify-center gap-1.5 select-none">
           <span>Made with</span>
-          <span className="text-rose-500 animate-pulse text-xs">❤️</span>
-          <span>by</span>
-          <span className="font-extrabold text-slate-800 bg-white/70 px-2 py-0.5 rounded-full border border-slate-200 shadow-xs">
-            Muhammad Saqib
+          <span className="font-extrabold text-slate-900 bg-white/80 backdrop-blur-xs px-2.5 py-0.5 rounded-full border border-pink-200/80 shadow-xs inline-flex items-center gap-1.5">
+            <span>S</span>
+            <i className="fa-solid fa-heart text-red-500 animate-pulse text-xs drop-shadow-[0_1px_3px_rgba(239,68,68,0.45)]" aria-hidden="true"></i>
+            <span>A</span>
           </span>
         </div>
       </footer>
